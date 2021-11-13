@@ -48,16 +48,16 @@ Insecure Direct Object Reference (IDOR)
 
 Пример уязвимого к SQL инъекциям кода на Python
 
-'''
+```
 import MySQLdb
 db = MySQLdb.connect(passwd="***",db="morning")
 с = db.cursor()
 c.execute("""SELECT toast, jam, coffee FROM breakfast WHERE price < %s"""%max_price)
-'''
+```
 
-'''
+```
 UNION SELECT 1, 2, version()
-'''
+```
 
 Решение: использовать prepare statement, которые зачастую есть в современных блиотеках, использовать ORM
 
